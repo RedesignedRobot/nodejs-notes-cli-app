@@ -1,6 +1,7 @@
 const fs = require("fs");
 const u = require("./utils.js");
 const _ = require("underscore");
+const asTable = require("as-table");
 
 function addNote(dTitle, dBody) {
   note = {
@@ -37,6 +38,22 @@ function deleteNote(dTitle) {
   }
 }
 
+function deleteAll() {
+  saveNotes([]);
+  u.green("All notes deleted!");
+}
+
+function listNotes() {
+  const notes = loadNotes();
+  if (notes.length != 0) {
+    console.log(asTable(notes));
+  } else if (notes.length === 0) {
+    u.yellow("No notes created.");
+  } else {
+    u.red("Notes display error.");
+  }
+}
+
 function loadNotes() {
   try {
     const databuffer = fs.readFileSync("notes.json");
@@ -68,5 +85,7 @@ function arrUnique(arr) {
 
 module.exports = {
   addNote,
-  deleteNote
+  deleteNote,
+  deleteAll,
+  listNotes
 };

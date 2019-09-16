@@ -39,10 +39,18 @@ yargs.command({
 });
 
 yargs.command({
+    command: "deleteAll",
+    describe: "Delete all notes",
+    handler: function() {
+      nTools.deleteAll();
+    }
+  });
+
+yargs.command({
   command: "list",
   describe: "list all notes",
   handler: function() {
-    console.log(chalk.magenta("Voila!"));
+    nTools.listNotes();
   }
 });
 
