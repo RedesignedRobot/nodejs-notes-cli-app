@@ -57,6 +57,17 @@ function listNotes() {
   }
 }
 
+function findNote(title) {
+  const notes = loadNotes();
+  const target = notes.find(note => note.title === title);
+  if (target) {
+    u.green("Note found!");
+    console.table(target);
+  } else {
+      u.yellow("Note not found :(");
+  }
+}
+
 function loadNotes() {
   try {
     const databuffer = fs.readFileSync("notes.json");
@@ -76,7 +87,7 @@ function saveNotes(jsonArray) {
 
 function arrUnique(arr) {
   var cleaned = [];
-  arr.forEach((itm) => {
+  arr.forEach(itm => {
     var unique = true;
     cleaned.forEach(itm2 => {
       if (_.isEqual(itm, itm2)) unique = false;
@@ -90,5 +101,6 @@ module.exports = {
   addNote,
   deleteNote,
   deleteAll,
-  listNotes
+  listNotes,
+  findNote
 };

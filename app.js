@@ -18,7 +18,7 @@ yargs.command({
       type: "string"
     }
   },
-  handler: (argv) => {
+  handler: argv => {
     nTools.addNote(argv.title, argv.body);
   }
 });
@@ -33,18 +33,18 @@ yargs.command({
       type: "string"
     }
   },
-  handler: (argv) => {
+  handler: argv => {
     nTools.deleteNote(argv.title);
   }
 });
 
 yargs.command({
-    command: "deleteAll",
-    describe: "Delete all notes",
-    handler: () => {
-      nTools.deleteAll();
-    }
-  });
+  command: "deleteAll",
+  describe: "Delete all notes",
+  handler: () => {
+    nTools.deleteAll();
+  }
+});
 
 yargs.command({
   command: "list",
@@ -55,10 +55,17 @@ yargs.command({
 });
 
 yargs.command({
-  command: "read",
-  describe: "read a note",
-  handler: () => {
-    console.log(chalk.cyan("Voila!"));
+  command: "find",
+  describe: "find a note",
+  builder: {
+    title: {
+      describe: "Note title",
+      demandOption: true,
+      type: "string"
+    }
+  },
+  handler: argv => {
+    nTools.findNote(argv.title);
   }
 });
 
