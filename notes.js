@@ -64,7 +64,7 @@ function findNote(title) {
     u.green("Note found!");
     console.table(target);
   } else {
-      u.yellow("Note not found :(");
+    u.yellow("Note not found :(");
   }
 }
 
