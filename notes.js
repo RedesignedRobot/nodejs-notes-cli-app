@@ -1,7 +1,7 @@
 const fs = require("fs");
 const u = require("./utils.js");
 const _ = require("underscore");
-require ('ansicolor').nice
+require("ansicolor").nice;
 const asTable = require("as-table").configure({
   title: x => x.bright.green,
   delimiter: " | ".dim.cyan,
@@ -22,9 +22,7 @@ function addNote(dTitle, dBody) {
 function deleteNote(dTitle) {
   const notes = loadNotes();
   if (notes.length != 0) {
-    const notesToKeep = notes.filter(function(note) {
-      return note.title !== dTitle;
-    });
+    const notesToKeep = notes.filter(note => note.title !== dTitle);
     if (notesToKeep.length < notes.length) {
       u.green("Note deleted.");
       if (notesToKeep.length === 0) {
@@ -78,9 +76,9 @@ function saveNotes(jsonArray) {
 
 function arrUnique(arr) {
   var cleaned = [];
-  arr.forEach(function(itm) {
+  arr.forEach((itm) => {
     var unique = true;
-    cleaned.forEach(function(itm2) {
+    cleaned.forEach(itm2 => {
       if (_.isEqual(itm, itm2)) unique = false;
     });
     if (unique) cleaned.push(itm);
