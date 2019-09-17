@@ -3,7 +3,7 @@ const u = require("./utils.js");
 const _ = require("underscore");
 require ('ansicolor').nice
 const asTable = require("as-table").configure({
-  title: x => x.bright,
+  title: x => x.bright.green,
   delimiter: " | ".dim.cyan,
   dash: "-".bright.cyan
 });
