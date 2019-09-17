@@ -1,7 +1,12 @@
 const fs = require("fs");
 const u = require("./utils.js");
 const _ = require("underscore");
-const asTable = require("as-table");
+require ('ansicolor').nice
+const asTable = require("as-table").configure({
+  title: x => x.bright,
+  delimiter: " | ".dim.cyan,
+  dash: "-".bright.cyan
+});
 
 function addNote(dTitle, dBody) {
   note = {
