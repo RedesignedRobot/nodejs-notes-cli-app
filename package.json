@@ -11,7 +11,7 @@
     "ansicolor": "1.1.92",
     "as-table": "1.0.55",
     "chalk": "^2.4.2",
-    "underscore": "1.9.1",
+    "underscore": "1.12.1",
     "validator": "^11.1.0",
     "yargs": "^14.0.0"
   },
